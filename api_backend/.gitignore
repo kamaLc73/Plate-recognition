@@ -1,0 +1,14 @@
+env/
+
+.code-workspace
+
+model/__pycache__/
+
+__pycache__/
+
+model/received/
+
+*.weights
+*.cfg
+
+

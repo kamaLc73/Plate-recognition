@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  api_backend:
+    build: ./api_backend
+    environment:
+      - DATABASE_URL=postgres://postgres:1234@db:5433/postgres
+      - DATABASE_NAME=postgres
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./api_backend:/app  
+    restart: always
+
+  flask-api-tester:
+    build: ./flask-api-tester
+    ports:
+      - "3000:3000"  
+    restart: always
+    depends_on:               
+      - api_backend
+    volumes:
+      - ./flask-api-tester:/app
